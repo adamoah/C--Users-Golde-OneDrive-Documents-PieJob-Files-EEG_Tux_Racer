@@ -1,0 +1,9 @@
+tensorflow
+pylsl
+numpy
+nltk
+pynput
+peakutils
+scipy
+PyWavelets
+matplotlib
