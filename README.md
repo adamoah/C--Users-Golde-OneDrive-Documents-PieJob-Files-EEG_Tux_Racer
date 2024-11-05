@@ -2,7 +2,7 @@
 
 Important things to note:
 * ```eegtuxracer.py``` is the main file you should be running
-* Line 72 of ```eegtuxracer.py``` asks you to put the file name for a tensorflow lite model. This model can be obtained by using the Edge Impulse
+* Line 71 of ```eegtuxracer.py``` asks you to put the file name for a tensorflow lite model. This model can be obtained by using the Edge Impulse
   platform to train a model using your EEG signals to classify left and right movement inputs
 * When building your model/pipeline in Edge Impulse you'll want/need to add a processing block. The code in this repository expects that your data is
   processed using the spectral analysis processing module (which can be selected by choosing the 'Show all blocks anyway' option at the bottom). Ensure that
