@@ -3,7 +3,6 @@ import pylsl
 import numpy as np
 from pylsl import StreamInlet, resolve_stream                  
 from nltk import flatten
-import psutil
 import dsp
 
 from pynput.keyboard import Key, Controller
@@ -87,10 +86,10 @@ inlet = pylsl.stream_inlet(streams[0])
 nr_samples = 1
 
 
-while "tuxracer.exe" in (i.name() for i in psutil.process_iter()): # check if tuxracer program is running only continue if it is
+while True: # check if tuxracer program is running only continue if it is
 
     back_nr = left_nr = right_nr = 0
-    
+
     for iter in range (nr_samples):
         all_samples = []
         for i in range (2000 // 4):                                                 # 2000 ms = 2 secs, 4 EEG-electrodes (channels)
@@ -109,9 +108,8 @@ while "tuxracer.exe" in (i.name() for i in psutil.process_iter()): # check if tu
 
         output_data = interpreter.get_tensor(output_details[0]['index'])            # output_details[0]['index'] = the index which provides the input
 
-        background  = output_data[0][0]
-        right       = output_data[0][1]
-        left        = output_data[0][2]
+        right       = output_data[0][0]
+        left        = output_data[0][1]
         
         if left >= confidence_threshold:
             predicted_key = "L"  # Adjust based on your model's output mapping
